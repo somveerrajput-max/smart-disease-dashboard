@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Health Screening Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">Smart Health+</div>
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Reports</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+<main class="container">
+
+<h1>Early Health Screening</h1>
+<p class="subtitle">Clinical vitals • Risk screening • Medical guidance</p>
+
+<!-- ================= INPUT SECTION ================= -->
+
+<section class="card">
+
+<h3>Patient Information</h3>
+<div class="grid">
+  <input type="text" placeholder="Full Name">
+  <input type="number" id="age" placeholder="Age" min="0">
+  <select>
+    <option value="">Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<h3>Basic Vitals (Compulsory)</h3>
+<div class="grid">
+  <input type="number" id="height" placeholder="Height (cm)">
+  <input type="number" id="weight" placeholder="Weight (kg)">
+  <input type="number" id="bp" placeholder="Blood Pressure (mmHg)">
+  <input type="number" id="sugar" placeholder="Blood Sugar (mg/dL)">
+  <input type="number" id="temp" placeholder="Temperature (°C)">
+  <input type="number" id="spo2" placeholder="SpO₂ (%)">
+</div>
+
+<h3>Lab / Health Metrics (Optional)</h3>
+<div class="grid">
+  <input type="number" id="cholesterol" placeholder="Cholesterol (mg/dL)">
+  <input type="number" id="hb" placeholder="Hemoglobin (g/dL)">
+  <input type="number" id="wbc" placeholder="WBC Count">
+  <input type="number" id="rbc" placeholder="RBC Count">
+</div>
+
+<h3>Lifestyle</h3>
+<div class="grid">
+  <select id="smoking">
+    <option value="">Smoking</option>
+    <option>Never</option>
+    <option>Occasional</option>
+    <option>Daily</option>
+  </select>
+  <select id="alcohol">
+    <option value="">Alcohol</option>
+    <option>Never</option>
+    <option>Occasional</option>
+    <option>Daily</option>
+  </select>
+  <select id="activity">
+    <option value="">Physical Activity</option>
+    <option>Low</option>
+    <option>Moderate</option>
+    <option>High</option>
+  </select>
+  <input type="number" id="sleep" placeholder="Sleep Hours">
+</div>
+
+<h3>Symptoms</h3>
+<div class="checkbox-grid">
+  <label><input type="checkbox" value="Fever"> Fever</label>
+  <label><input type="checkbox" value="Cough"> Cough</label>
+  <label><input type="checkbox" value="Chest Pain"> Chest Pain</label>
+  <label><input type="checkbox" value="Fatigue"> Fatigue</label>
+  <label><input type="checkbox" value="Headache"> Headache</label>
+</div>
+
+<textarea id="customSymptoms"
+ placeholder="Other symptoms (AI readable)..."></textarea>
+
+<h3>Medical History</h3>
+<div class="checkbox-grid">
+  <label><input type="checkbox" value="Diabetes"> Diabetes</label>
+  <label><input type="checkbox" value="Hypertension"> Hypertension</label>
+  <label><input type="checkbox" value="Heart Disease"> Heart Disease</label>
+  <label><input type="checkbox" value="Asthma"> Asthma</label>
+  <label><input type="checkbox" value="Family History"> Family History</label>
+</div>
+
+<button onclick="analyzeHealth()">Analyze Health</button>
+
+</section>
+
+<!-- ================= OUTPUT SECTION ================= -->
+
+<section class="card">
+  <h3>Clinical Summary</h3>
+  <div id="result"></div>
+</section>
+
+<section class="card chart-card">
+  <canvas id="vitalChart"></canvas>
+</section>
+
+<section class="card report-card">
+  <h3>Generate e‑Health Report</h3>
+  <p>PDF & doctor‑ready prescription (backend integration)</p>
+  <button disabled>Generate Report</button>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
